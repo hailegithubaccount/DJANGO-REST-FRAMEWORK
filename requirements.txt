@@ -1,0 +1,8 @@
+asgiref
+Django>=4.2
+django-extensions
+djangorestframework
+pillow
+sqlparse
+tzdata
+
