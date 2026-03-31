@@ -36,7 +36,7 @@ POST http://localhost:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
-	"username": "haile",
+	"username": "haileMichael",
 	"password": "12345678"
 }
 
@@ -70,7 +70,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8000/users/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0ODU3NTY3LCJpYXQiOjE3NzQ4NTcyNjcsImp0aSI6IjhmYmZmODNkYTdiNTRiYjA5YmY4NzgzNjdlNTU5NGM5IiwidXNlcl9pZCI6IjEifQ.BLIRoa3QbiGcCP-5jcnQtGotlkUi3bFpZJ4R0gftDC4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTU4MjY0LCJpYXQiOjE3NzQ5NTc5NjQsImp0aSI6ImVmNjEwOTMzOTMyMTRiNDQ5ZDkxZWM4ZDEzZjEyMzdmIiwidXNlcl9pZCI6IjEifQ.KnaeOmOX4OGWABCcosGlaYZ9shNsnbEPWjKuBeZloT0
 
 ###
 POST http://localhost:8000/orders/create/ HTTP/1.1
@@ -88,6 +88,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ###
 GET http://localhost:8000/orders/listOrders/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0ODcwOTM2LCJpYXQiOjE3NzQ4NzA2MzYsImp0aSI6ImUwMTc5ZmQ5MTMxNzRhMDc5N2IwMmIxZTExZWQ0N2Y3IiwidXNlcl9pZCI6IjEifQ.r-1XGPyP6TXylz2-P860YGmKw1gQphKT-ZJe93Jbzlc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTU3ODA0LCJpYXQiOjE3NzQ5NTc1MDQsImp0aSI6ImY0YWE1MGMyYjgwMjRmZmNhZWYxNTg1MWRmNGNmNmI1IiwidXNlcl9pZCI6IjEifQ.G2ujV40UWxmtrW0zQPKKGamloMsDO3Xta8iSVLPrlgM
+
+
+###
+GET http://localhost:8000/orders/user-orders/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTU4MzQxLCJpYXQiOjE3NzQ5NTgwNDEsImp0aSI6Ijk1ZWJmN2JmN2IyYzRiYTJiOTU0NjFmNmFjZjhmZDkxIiwidXNlcl9pZCI6IjIifQ.fngir5q6BpFlNexcQhQShKbZHvaWPhboMyGs4aMjbPY
 
 
