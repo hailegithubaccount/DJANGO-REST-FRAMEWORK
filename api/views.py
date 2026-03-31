@@ -1,5 +1,5 @@
 from django.db.models import Max
-from api.serializers import ProductSerializer, OrderSerializer, ProductInfoSerializer, UserSerializer
+from api.serializers import ProductSerializer, OrderSerializer, ProductInfoSerializer, UserSerializer, OrderCreateSerializer
 from api.models import Product, Order, OrderItem, User
 from rest_framework.response import Response
 from rest_framework import generics
@@ -70,6 +70,20 @@ class UserOrderListAPIView(generics.ListAPIView):
         return qs.filter(user=self.request.user)
 
 
+class OrderCreateAPIView(generics.CreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderCreateSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+class OrderListAPIView(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsAdminUser]
+
+
 class ProductInfoAPIView(APIView):
     def get(self, request):
         products = Product.objects.all()
@@ -79,3 +93,10 @@ class ProductInfoAPIView(APIView):
             'max_price': products.aggregate(max_price=Max('price'))['max_price']
         })
         return Response(serializer.data)
+
+        
+class OrderListAPIView(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsAdminUser]
+

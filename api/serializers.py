@@ -76,3 +76,25 @@ class ProductInfoSerializer(serializers.Serializer):
     products = ProductSerializer(many=True)
     count = serializers.IntegerField()
     max_price = serializers.FloatField()
+
+
+class OrderItemCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = ('product', 'quantity')
+
+
+class OrderCreateSerializer(serializers.ModelSerializer):
+    items = OrderItemCreateSerializer(many=True)
+
+    class Meta:
+        model = Order
+        fields = ('order_id', 'items', 'status')
+        read_only_fields = ('order_id', 'status')
+
+    def create(self, validated_data):
+        items_data = validated_data.pop('items')
+        order = Order.objects.create(**validated_data)
+        for item_data in items_data:
+            OrderItem.objects.create(order=order, **item_data)
+        return order
