@@ -9,6 +9,7 @@ from rest_framework.permissions import (
     AllowAny
 )
 from rest_framework.views import APIView
+from api.filters import ProductFilter
 
 
 class UserCreateAPIView(generics.CreateAPIView):
@@ -35,6 +36,7 @@ class UserListCreateAPIView(generics.ListCreateAPIView):
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filterset_class = ProductFilter
 
     def get_permissions(self):
         self.permission_classes = [AllowAny]
@@ -55,9 +57,7 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
         return super().get_permissions()    
     
 
-class OrderListAPIView(generics.ListAPIView):
-    queryset = Order.objects.prefetch_related('items__product')
-    serializer_class = OrderSerializer
+# (Removed redundant OrderListAPIView)
 
 
 class UserOrderListAPIView(generics.ListAPIView):
@@ -94,9 +94,10 @@ class ProductInfoAPIView(APIView):
         })
         return Response(serializer.data)
 
-        
-class OrderListAPIView(generics.ListAPIView):
+
+class OrderDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [IsAdminUser]
+    lookup_field = 'order_id'
 

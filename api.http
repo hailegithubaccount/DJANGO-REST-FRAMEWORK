@@ -1,4 +1,4 @@
-GET http://localhost:8000/products/ HTTP/1.1
+GET http://localhost:8000/products/?price_lt=200 HTTP/1.1
 
 ###
 GET http://localhost:8000/products/2/ HTTP/1.1
@@ -36,7 +36,7 @@ POST http://localhost:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
-	"username": "haileMichael",
+	"username": "haile",
 	"password": "12345678"
 }
 
@@ -88,11 +88,23 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ###
 GET http://localhost:8000/orders/listOrders/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTU3ODA0LCJpYXQiOjE3NzQ5NTc1MDQsImp0aSI6ImY0YWE1MGMyYjgwMjRmZmNhZWYxNTg1MWRmNGNmNmI1IiwidXNlcl9pZCI6IjEifQ.G2ujV40UWxmtrW0zQPKKGamloMsDO3Xta8iSVLPrlgM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTYwNTQ1LCJpYXQiOjE3NzQ5NjAyNDUsImp0aSI6IjY2MmE2ZGJjNTY4ZTRkNDRiZGE1MWY1MGYxMWMwYjYyIiwidXNlcl9pZCI6IjEifQ.sosut3ze-9JYGR5dkCQ9XFjoE1i7USEJBCcjnIjZKL4
 
 
 ###
-GET http://localhost:8000/orders/user-orders/ HTTP/1.1
+GET http://localhost:8000/user-orders/ HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTU4MzQxLCJpYXQiOjE3NzQ5NTgwNDEsImp0aSI6Ijk1ZWJmN2JmN2IyYzRiYTJiOTU0NjFmNmFjZjhmZDkxIiwidXNlcl9pZCI6IjIifQ.fngir5q6BpFlNexcQhQShKbZHvaWPhboMyGs4aMjbPY
 
 
+###
+PATCH http://localhost:8000/orders/6a37366c-7e3d-4cfb-9280-165766ab3184/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTYyMjA0LCJpYXQiOjE3NzQ5NjE5MDQsImp0aSI6Ijg3NTYyODU3YTgxNTQ1M2I5NDYxOWQ3ZDYyMTAzZTAyIiwidXNlcl9pZCI6IjEifQ.nRBRLy_K4Lcc-qb8pp2KZDmRKmvqe9_RKPZ9TfLr1aY
+
+{   
+    "status": "Cancelled"
+}
+
+###
+DELETE http://localhost:8000/orders/1/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc0OTYwMjcyLCJpYXQiOjE3NzQ5NTk5NzIsImp0aSI6ImU4YTQ5NjBhZDI5MjQ2YzE5ZWU0YWE1NGY1YWU3YzMzIiwidXNlcl9pZCI6IjEifQ.hxBIEq3H2rG2pH3fAqTTrd8QKaaQoWKyps1RA36wS6w
