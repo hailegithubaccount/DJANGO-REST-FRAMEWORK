@@ -11,10 +11,10 @@ class InStockFilterBackend(filters.BaseFilterBackend):
 
 
 
-class ProductFilter(django_filters.FilterSet):
-    class Meta:
-        model = Product
-        fields = {
-            'name': ['iexact', 'icontains'], 
-            'price': ['exact', 'lt', 'gt', 'range']
-        }
+# class ProductFilter(django_filters.FilterSet):
+#     class Meta:
+#         model = Product
+#         fields = {
+#             'name': ['iexact', 'icontains'], 
+#             'price': ['exact', 'lt', 'gt', 'range']
+#         }
